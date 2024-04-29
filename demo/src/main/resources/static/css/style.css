@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
+:root{
+    --cor-principal:#28cca6;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -68,14 +72,14 @@ h2 {
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #45b6fe;
+    background-color: #2ff8f8;
     color: #ffffff;
     font-size: 16px;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #2f8fd9;
+    background-color: #2ff8f8;
 }
 
 header{
@@ -84,7 +88,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items:center ;
-    background: #00ffff;
+    background: var(--cor-principal);
 }
 
 header  ul{
@@ -116,7 +120,7 @@ h1:hover{
 
     }100%{
         scale: 1.2;
-        border-bottom: 5px solid blue;
+        border-bottom: 3px solid blue;
         color: #0e2433;
     }
 }
@@ -146,26 +150,62 @@ h1:hover{
     position: relative;
     top: 10px;
     left: 130px;
+    gap: 30px;
+}
+
+button {
+    font-family:  "Oswald", sans-serif;
+    font-size: 24px;
+    color: white;
+
+}
+
+button svg {
+    width: 40px;
+    height:40px;
 }
 .container-esquerda-banner .container-botoes button:nth-child(1){
-    background-color: #00ffff;
+    background-color: var(--cor-principal);
     border: none;
     width: 250px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 24px;
 }
 
+.container-esquerda-banner .container-botoes button:nth-child(1):hover{
+animation: animate-button-banner 0.2s forwards;
+}
 .container-esquerda-banner .container-botoes button:nth-child(2){
     background-color: white;
-    border: 3px solid black;
+    width: 130px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
+.container-esquerda-banner .container-botoes button:nth-child(2):hover{
+    animation: animate-button-banner 0.2s forwards;
 }
 
+@keyframes animate-button-banner{
+    0%{
+
+    }100%{
+        scale: 1.2;
+    }
+}
 .container-direita-banner{
     position: relative;
     top: 80px;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;    left: 50px;
-    width: 400px;
-    height: 300px;
+    width: 630px;
+    height: 420px;
+}
+
+.container-direita-banner img{
+    border-radius: 10px;
 }
 
 h4{
@@ -177,10 +217,133 @@ h4{
 p{
     font-size: 12px;
     font-family: "Roboto", sans-serif;
-    width: 400px;
+    
 }
 #sobre-nos{
-    background-color: #b8b6b6;
+    background-color: #f3f3f3;
     width: 100%;
-    height: 500px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.container-titulo{
+    width: 45%;
+    margin-left: auto;
+    margin-top: 45px;
+    margin-right: auto;
+    height: 15%;
+    text-align: center;
+}
+
+
+.container-cards{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-cards .card{
+    width: 25%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: box-shadow 0.2s;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.container-cards .card .icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.container-cards .card svg{
+    width: 50px;
+    height: 50px;
+}
+.container-cards .card .title{
+    position: relative;
+    top: 0px;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    
+}
+
+.container-cards .card .descricao{
+    position: relative;
+    bottom: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 1px;
+}
+.container-cards .card .ancora-card {
+    width: 100%;
+}
+.container-cards .card .ancora-card button{ 
+    color: rgb(23, 156, 156);
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    bottom: 10px;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+@keyframes animate-a{
+    0%{
+
+    }100%{
+        scale: 1.3;
+        color: orange;
+    }
+}
+
+.container-cards .card:hover{
+animation: animate-card 0.2s forwards;
+color: white;
+}
+.container-cards .card:hover .ancora-card button{
+        animation: animate-a 0.5s forwards ease-in-out;
+}
+@keyframes animate-card{
+    0%{
+
+    }100%{
+        scale: 1.05;
+        background-color: var(--cor-principal);
+        color: white;
+        font-weight: bolder;
+        box-shadow: rgba(204, 56, 20, 0.2) 0px 7px 29px 0px;
+
+    }
+}
+
+
+#footer{
+    background-color: #635e58;
+    width: 100%;
+    height: 450px;
+}
+.rodape p{
+    color: white;
+    font-size: 16px;
 }
