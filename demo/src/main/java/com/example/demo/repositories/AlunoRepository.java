@@ -14,6 +14,6 @@ import com.example.demo.Model.Aluno;
 public interface AlunoRepository extends org.springframework.data.jpa.repository.JpaRepository<Aluno, Long>{
     Aluno findByEmail (String username);
 
-    @Query("SELECT u FROM User u WHERE u.role = 'ALUNO'")
-    List<Aluno> findAllAlunos();
+    @Query("SELECT * FROM alunos WHERE role = 'ALUNO'")
+    List <Aluno> findAllAlunos();
 }
