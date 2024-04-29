@@ -8,6 +8,91 @@
 <body>
     <h1>ESTAMOS NA PAGINA DE ADMIN ALOISIO BOI BANDIDO</h1>
 
+
+
+    <h1>Pagina interna de admin</h1>
+
+
+    <div class="container">
+    
+    <div class="message" th:if="${message != null}" th:text="${message}" id="message"></div>
+    <h2>Cadastro de alunos</h2>
+
+    <form id="registration-form" th:action="@{/registration}" method="post" role="form" th:object="${aluno}">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input th:field="*{nome}" type="text" id="nome" name="nome" placeholder="Insira seu nome" required />
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input th:field="*{telefone}" type="text" id="telefone" name="telefone" placeholder="Insira seu telefone" required />
+        </div>
+
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input th:field="*{cpf}" type="text" id="cpf" name="cpf" placeholder="Insira seu CPF" required />
+        </div>
+
+        <div class="form-group">
+            <label for="curso">Curso:</label>
+            <input th:field="*{curso}" type="text" id="curso" name="curso" placeholder="Insira seu Curso" required/>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <label for="professor">professor:</label>
+            <input th:field="*{professor}" type="text" id="professor" name="professor" placeholder="Insira seu professor" required/>
+        </div>
+        <div class="form-group">
+            <label for="horario">horario:</label>
+            <input th:field="*{horario}" type="text" id="horario" name="horario" placeholder="Insira seu horario" required/>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Insira seu E-Mail" required />
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input th:field="*{senha}" type="password" id="senha" name="senha" placeholder="Insira sua senha" required />
+        </div>
+
+        <div class="form-group">
+            <label for="role">USUÁRIO</label>
+            <input th:field="*{role}" type="text" id="role" name="role" placeholder="Tipo de usuário" required value="ALUNO"/>
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+
+
+
+
     <span sec:authorize="isAuthenticated"><a th:href="@{/logout}">logout</a></span>
+    
+
+
+    <a href="admin-alunos--page">listar alunos</a>
 </body>
 </html>
+

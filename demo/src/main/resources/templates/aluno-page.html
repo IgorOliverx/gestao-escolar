@@ -7,8 +7,15 @@
 </head>
 <body>
     Pagina de alunos
+    
+    <h1>[[${user.getNome()}]]</h1>
+    <h1>[[${user.getTelefone()}]]</h1>
+    <h1>[[${user.getCpf()}]]</h1>
+    <h1>[[${user.getEmail()}]]</h1>
 
 
+    
     <span sec:authorize="isAuthenticated"><a th:href="@{/logout}">logout</a></span>
+
 </body>
 </html>

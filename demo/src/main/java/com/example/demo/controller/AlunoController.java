@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.Model.Aluno;
 import com.example.demo.dto.AlunoDto;
+import com.example.demo.repositories.AlunoRepository;
 import com.example.demo.service.AlunoService;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -33,6 +36,9 @@ public class AlunoController {
     @Autowired
     private AlunoService alunoService; //Representa os serviços do aluno(entidade principal)
     //OBS: note que o programa deveria modularizar a classe aluno na entidade(interface) USUÁRIO e depois criar elementos filhos dessa interface(admin, prof e aluno)
+
+    @Autowired
+    private AlunoRepository alunoRepository;
 
     
     /*
@@ -73,11 +79,25 @@ public class AlunoController {
     }
 
     @GetMapping("admin-page")
-    public String adminPage(Model model, Principal principal){
+    public String adminPage(Model model, Principal principal, @ModelAttribute("aluno") AlunoDto alunoDto){
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("admin", userDetails);
         return "admin-page";
-        //o Senhor aloisio boi bandido não está me ajudando como deveria, essa porra demorou para caralho para ser construída, gostaria que você tivesse me ajudado
+    }
+
+    @GetMapping("admin-alunos--page")
+        public String mostrarAlunos(Model model){
+                    List<Aluno> alunos = alunoRepository.findAllAlunos();
+        model.addAttribute("alunos", alunos);
+        return "admin-alunos--page";
+        }
+    
+
+    @PostMapping("admin-page")
+    public String saveUserByAdmin(@ModelAttribute("aluno") AlunoDto alunoDto, Model model){
+        alunoService.save(alunoDto); //Aqui o certo seria a modularização e o admin/prof/aluno ter o seu(tudo herdade de uma interface usuario -> ou classe abstrata, depende das limitações do spring (na verdade de minha capacidade intelectual e cognitiva))
+        model.addAttribute("message", "Register successfully!");
+        return "register";
     }
 
     @GetMapping("prof-page")
@@ -85,6 +105,5 @@ public class AlunoController {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
         model.addAttribute("prof", userDetails);
         return "prof-page";
-        //o Senhor aloisio boi bandido não está me ajudando como deveria, essa porra demorou para caralho para ser construída, gostaria que você tivesse me ajudado
     }
 }

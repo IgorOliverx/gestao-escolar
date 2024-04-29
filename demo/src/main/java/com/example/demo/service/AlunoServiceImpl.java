@@ -31,7 +31,7 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Override
     public Aluno save(AlunoDto alunoDto) {
-        Aluno aluno = new Aluno(alunoDto.getNome(), alunoDto.getTelefone(), alunoDto.getCpf(), alunoDto.getCurso(), alunoDto.getEmail(), passwordEncoder.encode(alunoDto.getSenha()), alunoDto.getRole());
+        Aluno aluno = new Aluno(alunoDto.getNome(), alunoDto.getTelefone(), alunoDto.getCpf(), alunoDto.getCurso(), alunoDto.getEmail(), passwordEncoder.encode(alunoDto.getSenha()), alunoDto.getNota(), alunoDto.getFalta(), alunoDto.getProfessor(), alunoDto.getHorario(), alunoDto.getRole());
         return alunoRepository.save(aluno);
 }
 

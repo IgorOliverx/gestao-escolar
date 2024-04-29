@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h2>Listagem de alunos</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>curso</th>
+            <!-- Adicione mais colunas conforme necessário -->
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="aluno : ${alunos}">
+            <td th:text="${aluno.nome}"></td>
+            <td th:text="${aluno.curso}"></td>
+            <!-- Adicione mais colunas conforme necessário -->
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

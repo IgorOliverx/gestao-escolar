@@ -48,6 +48,19 @@ public class CustomAlunoDetail implements UserDetails{
     public String getEmail(){
         return aluno.getEmail();
     }
+    public String getNota(){
+        return aluno.getNota();
+    }
+    public String getFalta(){
+        return aluno.getFalta();
+    }
+
+    public String getProfessor(){
+        return aluno.getProfessor();
+    }
+    public String getHorario(){
+        return aluno.getHorario();
+    }
 
     @Override
     public String getPassword() {

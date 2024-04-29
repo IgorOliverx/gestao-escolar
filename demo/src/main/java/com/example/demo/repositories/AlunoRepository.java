@@ -1,5 +1,9 @@
 package com.example.demo.repositories;
 
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+
 import com.example.demo.Model.Aluno;
 
 /**
@@ -9,4 +13,7 @@ import com.example.demo.Model.Aluno;
 @org.springframework.stereotype.Repository
 public interface AlunoRepository extends org.springframework.data.jpa.repository.JpaRepository<Aluno, Long>{
     Aluno findByEmail (String username);
+
+    @Query("SELECT u FROM User u WHERE u.role = 'ALUNO'")
+    List<Aluno> findAllAlunos();
 }

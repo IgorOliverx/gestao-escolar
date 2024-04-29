@@ -14,15 +14,23 @@ public class AlunoDto {
     private String curso;
     private String email;
     private String senha;
+    private String nota;
+    private String falta;
+    private String professor;
+    private String horario;
     private String role;
 
-    public AlunoDto(String nome, String telefone, String cpf, String curso, String email, String senha, String role) {
+    public AlunoDto(String nome, String telefone, String cpf, String curso, String email, String senha, String nota, String falta, String professor, String horario, String role) {
         this.nome = nome;
         this.telefone = telefone;
         this.cpf = cpf;
         this.curso = curso;
         this.email = email;
         this.senha = senha;
+        this.nota = nota;
+        this.falta = falta;
+        this.professor = professor;
+        this.horario = horario;
         this.role = role;
     }
 
@@ -72,6 +80,39 @@ public class AlunoDto {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getNota() {
+        return nota;
+    }
+
+    public void setNota(String nota) {
+        this.nota = nota;
+    }
+
+    public String getFalta() {
+        return falta;
+    }
+
+    public void setFalta(String falta) {
+        this.falta = falta;
+    }
+    
+
+    public String getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(String professor) {
+        this.professor = professor;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
     }
 
     public String getRole() {
