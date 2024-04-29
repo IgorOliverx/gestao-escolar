@@ -8,6 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.Model.Aluno;
 
+import lombok.Getter;
+
+@Getter
 public class CustomAlunoDetail implements UserDetails{
 
     private Aluno aluno;
@@ -21,22 +24,6 @@ public class CustomAlunoDetail implements UserDetails{
     public Collection<? extends GrantedAuthority> getAuthorities() {
        
         return List.of(() -> aluno.getRole());
-    }
-
-    public String getNome(){
-        return aluno.getNome();
-    }
-
-    public String getTelefone(){
-        return aluno.getTelefone();
-    }
-
-    public String getCpf(){
-        return aluno.getCpf();
-    }
-
-    public String getCurso(){
-        return aluno.getCurso();
     }
 
     @Override

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.Model.Aluno;
 import com.example.demo.dto.AlunoDto;
 import com.example.demo.repositories.AlunoRepository;
-import com.example.demo.Model.Aluno;
 
 
 @Service
