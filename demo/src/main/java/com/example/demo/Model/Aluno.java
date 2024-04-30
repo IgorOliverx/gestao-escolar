@@ -6,59 +6,55 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
-
-/**
- * Model Aluno(deveria ter herdado de uma classe abstrata, já disse, mas deixa assim)
-*/
 @jakarta.persistence.Entity
-@Table(name="alunos", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table(name = "alunos", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Aluno {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.AUTO)
-   private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-   private String nome;
+    private String nome;
 
-   private String telefone;
+    private String telefone;
 
-   private String cpf;
+    private String cpf;
 
-   private String curso;
+    private String curso;
 
-   private String email;
+    private String email;
 
-   private String senha;
+    private String senha;
 
-   private String nota;
+    private String nota;
 
-   private String falta;
+    private String falta;
 
-   private String professor;
+    private String professor;
 
-   private String horario;
+    private String horario;
 
-   private String role;
-
-
+    private String role;
 
 
-   public Aluno(){super();}
+    public Aluno() {
+        super();
+    }
 
-   public Aluno(String nome, String telefone, String cpf, String curso, String email, String senha, String nota, String falta, String professor, String horario, String role){
-   
-    this.nome = nome;
-    this.telefone = telefone;
-    this.cpf = cpf;
-    this.curso = curso;
-    this.email = email;
-    this.senha = senha;
-    this.nota = nota;
-    this.falta = falta;
-    this.professor = professor;
-    this.horario = horario;
-    this.role = role;
-   }
+    public Aluno(String nome, String telefone, String cpf, String curso, String email, String senha, String nota, String falta, String professor, String horario, String role) {
+
+        this.nome = nome;
+        this.telefone = telefone;
+        this.cpf = cpf;
+        this.curso = curso;
+        this.email = email;
+        this.senha = senha;
+        this.nota = nota;
+        this.falta = falta;
+        this.professor = professor;
+        this.horario = horario;
+        this.role = role;
+    }
 
     public Long getId() {
         return this.id;
@@ -115,7 +111,7 @@ public class Aluno {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
 
     public String getNota() {
         return nota;
@@ -132,7 +128,7 @@ public class Aluno {
     public void setFalta(String falta) {
         this.falta = falta;
     }
-    
+
 
     public String getProfessor() {
         return professor;

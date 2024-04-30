@@ -11,25 +11,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.example.demo.service.CustomAlunoDetail;
-import com.example.demo.service.CustomAlunoDetailService;
+import com.example.demo.service.CustomUserDetailService;
 import com.example.demo.service.CustomSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-
-    //porra fiquei usando o import errado vai toma no cuuuuuuuuuuuuuuuuuuu
-    //aloisio boi bandido seu lixo 
-    //@Autowired
-    //CustomAlunoDetail customAlunoDetail;
-
     @Autowired
     CustomSuccessHandler customSuccessHandler;
 
     @Autowired
-    CustomAlunoDetailService customAlunoDetailService;
+    CustomUserDetailService customUserDetailService;
     
     @Bean
     public static PasswordEncoder passwordEncoder(){
@@ -41,7 +34,7 @@ public class SecurityConfig {
 
         http.csrf(c -> c.disable()).authorizeHttpRequests(request -> request.requestMatchers("/admin-page")
             .hasAuthority("ADMIN").requestMatchers("/aluno-page").hasAuthority("ALUNO").requestMatchers("/prof-page").hasAuthority("PROF")
-            .requestMatchers("/registration", "/css/**", "/").permitAll()
+            .requestMatchers("/registration-aluno", "/css/**", "/", "/registration-admin", "/registration-professor").permitAll()
             .anyRequest().authenticated())
 
             .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")
@@ -57,7 +50,7 @@ public class SecurityConfig {
 
     @Autowired
     public void configure(AuthenticationManagerBuilder auth)throws Exception{
-        auth.userDetailsService(customAlunoDetailService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(customUserDetailService).passwordEncoder(passwordEncoder());
     }
     
 }
