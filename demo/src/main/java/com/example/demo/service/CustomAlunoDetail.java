@@ -10,11 +10,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.Model.Aluno;
 
-/**
- * SEGUE O MESMO PRINCÍPIO DA EXPLICAÇÃO ANTERIOR
- * Acontece que agora essa classe implementa uma interface do spring security e aplica alguns métodos
- * ela é importante para saber quais informações vai autenticar sessão/fazer login, bem como mapear a classe MODEL ALUNO(não mais a dto do aluno)
+/*
+ * Em uma aplicação Spring, as classes "Custom" geralmente indicam componentes personalizados que estendem ou implementam funcionalidades específicas.
  */
+
 public class CustomAlunoDetail implements UserDetails {
 
     private Aluno aluno;

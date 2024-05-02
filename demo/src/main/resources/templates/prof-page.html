@@ -31,7 +31,7 @@
     </header>
 
     <div id="dashboard-section">
-        <h2>DashBoard de Professor(a) - <span id="nome-professor">[[${prof.getNome()}]]</span></h2>
+        <h2>DashBoard do Professor, <span id="nome-professor">[[${prof.getNome()}]]</span></h2>
         <!-- Outros elementos do dashboard, como estatísticas ou botões de ação, podem ser adicionados aqui -->
     </div>
 
@@ -63,6 +63,18 @@
         //Aqui você precisa passar as outras variaveis, dos outros cursos, da mesma forma que acima
         //se vc quiser, vc pode passar mais infos para o js, como cpf/email ou sei la, seria interessante a gente criar um campo hora cadastrada mais pra frente
     </script>
+
+    <!-- Formulário para atualizar faltas do aluno -->
+    <h2>Atualizar Faltas do Aluno</h2>
+    <form action="/update-faltas" method="post">
+        <label for="email">Email do Aluno:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="faltas">Novo Número de Faltas:</label>
+        <input type="number" id="faltas" name="faltas" required><br><br>
+
+        <button type="submit">Atualizar Faltas</button>
+    </form>
 
 
     <section id="footer">

@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import com.example.demo.Model.Aluno;
 
-/**
- * Repositório de Aluno
+/*
+ * Os repositórios (Repositories) são componentes responsáveis por fornecer uma interface para interagir com o banco de dados.
+ * Eles encapsulam a lógica de acesso aos dados, abstraindo detalhes de implementação do acesso aos dados do resto da aplicação.
+ * Aqui estão algumas finalidades gerais dos repositórios:
  */
+
 @org.springframework.stereotype.Repository
 public interface AlunoRepository extends org.springframework.data.jpa.repository.JpaRepository<Aluno, Long> {
     Aluno findByEmail(String username);

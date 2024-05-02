@@ -14,6 +14,11 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import com.example.demo.service.CustomUserDetailService;
 import com.example.demo.service.CustomSuccessHandler;
 
+/*
+ * A classe de configuração de segurança (Security Config) é uma classe Java utilizada em uma aplicação Spring Security para configurar as políticas de segurança, autenticação e autorização.
+ * Ela define como os recursos da aplicação são protegidos, quem tem acesso a esses recursos e como os usuários são autenticados.
+ */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -32,17 +37,22 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
-        http.csrf(c -> c.disable()).authorizeHttpRequests(request -> request.requestMatchers("/admin-page", "/registration-admin")
+        http.csrf(c -> c.disable())
+        .authorizeHttpRequests(request -> request.requestMatchers("/admin-page", "/registration-admin")
             .hasAuthority("ADMIN").requestMatchers("/aluno-page").hasAuthority("ALUNO").requestMatchers("/prof-page").hasAuthority("PROF")
             .requestMatchers("/registration-aluno", "/css/**", "/", "/registration-professor", "/images/**", "/js/**").permitAll()
             .anyRequest().authenticated())
 
+
+
             .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")
                 .successHandler(customSuccessHandler).permitAll())
 
+
+
                 .logout(form -> form.invalidateHttpSession(true).clearAuthentication(true)
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/    ").permitAll());
+                    .logoutSuccessUrl("/").permitAll());
 
 
                     return http.build();

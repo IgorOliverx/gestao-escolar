@@ -9,6 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+/*
+ * Em uma aplicação Spring, as classes "Custom" geralmente indicam componentes personalizados que estendem ou implementam funcionalidades específicas.
+ */
+
 public class CustomProfessorDetail implements UserDetails {
 
     private Professor professor;

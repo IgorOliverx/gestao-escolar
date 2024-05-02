@@ -10,9 +10,11 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- * Essa classe é responsável por verificar qual role é passada no cabeçalho de autorização e destinar a pagina interna certa
+/*
+ * O CustomUserDetailsService é uma classe personalizada utilizada em uma aplicação Spring Security para carregar detalhes do usuário durante o processo de autenticação.
+ * Ele substitui o comportamento padrão do Spring Security para carregar os detalhes do usuário a partir de uma fonte de dados personalizada, como um banco de dados ou outro sistema externo.
  */
+
 @Service
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 

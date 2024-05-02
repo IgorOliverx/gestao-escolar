@@ -5,6 +5,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.*;
 import lombok.*;
 
+/*
+ * Os modelos (Models) representam a estrutura de dados da aplicação, definindo os objetos que serão manipulados e armazenados no banco de dados.
+ * Eles encapsulam os dados e o comportamento associado a esses dados, fornecendo uma representação abstrata das entidades do mundo real.
+ */
+
 @jakarta.persistence.Entity
 @Table(name = "professor", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Getter

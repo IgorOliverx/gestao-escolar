@@ -2,28 +2,26 @@ package com.example.demo.dto;
 
 import lombok.*;
 
-import java.beans.ConstructorProperties;
-
 /*
- * Essa classe DTO permite encapsular(mais pra frente) a
- * entidade Aluno, em um objeto simples de manipular para o spring
- * pense que ao invés de mexer no objeto, ele manipula uma cópia
- * "data transfer object" -> meu Model pode ter mais atributos, mas aqui, ficam somente aqueles que quero transferir, no caso cadastrar no banco de dados
+ * DTOs (Data Transfer Objects) são utilizados para transferir dados entre componentes de um sistema.
+ * Eles encapsulam dados em uma estrutura simples e serializável, facilitando a comunicação entre diferentes partes do sistema.
+ * Aqui estão algumas finalidades gerais dos DTOs:
  */
+
 @Getter
 @Setter
 @AllArgsConstructor
 public class AlunoDto {
 
-    private String nome;
-    private String telefone;
-    private String cpf;
-    private String curso;
-    private String email;
-    private String senha;
-    private String nota;
-    private String falta;
-    private String professor;
-    private String horario;
-    private String role;
+    private String nome; // Nome do aluno
+    private String telefone; // Número de telefone do aluno
+    private String cpf; // CPF do aluno
+    private String curso; // Curso do aluno
+    private String email; // Endereço de e-mail do aluno
+    private String senha; // Senha do aluno
+    private String nota; // Nota do aluno
+    private String falta; // Quantidade de faltas do aluno
+    private String professor; // Nome do professor do aluno
+    private String horario; // Horário das aulas do aluno
+    private String role; // Papel ou função do aluno (por exemplo, "ALUNO")
 }

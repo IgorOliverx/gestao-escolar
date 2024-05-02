@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aluno Info</title>
+    <link rel="stylesheet" th:href="@{/css/style_interna_aluno.css}">
 </head>
+
 <body>
-    Pagina de alunos
-    
-    <h1>[[${user.getNome()}]]</h1>
-    <h1>[[${user.getTelefone()}]]</h1>
-    <h1>[[${user.getCpf()}]]</h1>
-    <h1>[[${user.getEmail()}]]</h1>
-
-
-    
-    <span sec:authorize="isAuthenticated"><a th:href="@{/logout}">logout</a></span>
-
+    <div class="container">
+        <h1>Informações do Aluno</h1>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <td>[[${user.getNome()}]]</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>[[${user.getEmail()}]]</td>
+            </tr>
+            <tr>
+                <th>CPF</th>
+                <td>[[${user.getCpf()}]]</td>
+            </tr>
+            <tr>
+                <th>Telefone</th>
+                <td>[[${user.getTelefone()}]]</td>
+            </tr>
+            <tr>
+                <th>Cursando</th>
+                <td>[[${user.getCurso()}]]</td>
+            </tr>
+            <tr>
+                <th>Faltas</th>
+                <td>[[${user.getFalta()}]]</td>
+            </tr>
+        </table>
+    </div>
 </body>
+
 </html>

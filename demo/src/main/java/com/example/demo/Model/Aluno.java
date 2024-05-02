@@ -5,9 +5,18 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import lombok.Getter;
+import lombok.Setter;
+
+/*
+ * Os modelos (Models) representam a estrutura de dados da aplicação, definindo os objetos que serão manipulados e armazenados no banco de dados.
+ * Eles encapsulam os dados e o comportamento associado a esses dados, fornecendo uma representação abstrata das entidades do mundo real.
+ */
 
 @jakarta.persistence.Entity
 @Table(name = "alunos", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Getter
+@Setter
 public class Aluno {
 
     @Id
@@ -56,103 +65,6 @@ public class Aluno {
         this.role = role;
     }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return this.telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getCpf() {
-        return this.cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getCurso() {
-        return this.curso;
-    }
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return this.senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-
-    public String getNota() {
-        return nota;
-    }
-
-    public void setNota(String nota) {
-        this.nota = nota;
-    }
-
-    public String getFalta() {
-        return falta;
-    }
-
-    public void setFalta(String falta) {
-        this.falta = falta;
-    }
-
-
-    public String getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(String professor) {
-        this.professor = professor;
-    }
-
-    public String getHorario() {
-        return horario;
-    }
-
-    public void setHorario(String horario) {
-        this.horario = horario;
-    }
-
-    public String getRole() {
-        return this.role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
 }
 

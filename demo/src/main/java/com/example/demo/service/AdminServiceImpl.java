@@ -4,8 +4,12 @@ import com.example.demo.Model.Admin;
 import com.example.demo.dto.AdminDto;
 import com.example.demo.repositories.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+/*
+ * Os serviços de implementação (Service Implementation) são componentes responsáveis por implementar a lógica de negócios definida pelos serviços.
+ * Eles contêm a implementação concreta dos métodos e operações definidos pelas interfaces de serviço.
+ */
 
 @Service
 public class AdminServiceImpl implements AdminService {
