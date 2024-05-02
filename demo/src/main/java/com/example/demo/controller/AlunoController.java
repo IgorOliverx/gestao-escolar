@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.Model.Aluno;
 import com.example.demo.dto.AdminDto;
 import com.example.demo.dto.AlunoDto;
@@ -15,7 +14,6 @@ import java.util.List;
 
 import com.example.demo.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -34,12 +32,14 @@ public class AlunoController {
      * Instância de classes para injeção de dependências
      */
     @Autowired
-    UserDetailsService userDetailsService; //Representa os serviços que um usuário que quer se autenticar precisa (loabByUsername)
-
+    UserDetailsService userDetailsService; // Representa os serviços que um usuário que quer se autenticar precisa
+                                           // (loabByUsername)
 
     @Autowired
-    private AlunoService alunoService; //Representa os serviços do aluno(entidade principal)
-    //OBS: note que o programa deveria modularizar a classe aluno na entidade(interface) USUÁRIO e depois criar elementos filhos dessa interface(admin, prof e aluno)
+    private AlunoService alunoService; // Representa os serviços do aluno(entidade principal)
+    // OBS: note que o programa deveria modularizar a classe aluno na
+    // entidade(interface) USUÁRIO e depois criar elementos filhos dessa
+    // interface(admin, prof e aluno)
 
     @Autowired
     private AdminService adminService;
@@ -50,10 +50,8 @@ public class AlunoController {
     @Autowired
     private AlunoRepository alunoRepository;
 
-
     @Autowired
     private AdminRepository adminRepository;
-
 
     /*
      * Mapeamento de Rotas
@@ -64,7 +62,6 @@ public class AlunoController {
         return "register_admin";
 
     }
-
 
     @PostMapping("/registration-admin")
     public String saveUserAdmin(@ModelAttribute("admin") AdminDto adminDto, Model model) {
@@ -77,7 +74,6 @@ public class AlunoController {
     public String getRegistrationPageAluno(@ModelAttribute("aluno") AlunoDto alunoDto) {
         return "register";
     }
-
 
     @PostMapping("/registration-aluno")
     public String saveUserAluno(@ModelAttribute("aluno") AlunoDto alunoDto, Model model) {
@@ -92,7 +88,6 @@ public class AlunoController {
         return "register_professor";
 
     }
-
 
     @PostMapping("/registration-professor")
     public String saveUserProfessor(@ModelAttribute("professor") ProfessorDto professorDto, Model model) {
@@ -111,16 +106,15 @@ public class AlunoController {
         }
         return "/index";
     }
-    
+
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
-
-
     /*
-     * Observe que o mapeamento das rotas de login são features do Spring Security(UserDetailsService)
+     * Observe que o mapeamento das rotas de login são features do Spring
+     * Security(UserDetailsService)
      */
     @GetMapping("aluno-page")
     public String alunoPage(Model model, Principal principal) {
@@ -139,32 +133,38 @@ public class AlunoController {
     @GetMapping("admin-alunos--page")
     public String mostrarAlunos(Model model) {
         List<Aluno> alunos = alunoRepository.findAllAlunos();
-
         model.addAttribute("alunos", alunos);
         return "admin-alunos--page";
     }
 
-
     @PostMapping("admin-page")
     public String saveUserByAdmin(@ModelAttribute("aluno") AlunoDto alunoDto, Model model) {
-        alunoService.save(alunoDto); //Aqui o certo seria a modularização e o admin/prof/aluno ter o seu(tudo herdade de uma interface usuario -> ou classe abstrata, depende das limitações do spring (na verdade de minha capacidade intelectual e cognitiva))
+        alunoService.save(alunoDto); // Aqui o certo seria a modularização e o admin/prof/aluno ter o seu(tudo
+                                     // herdade de uma interface usuario -> ou classe abstrata, depende das
+                                     // limitações do spring (na verdade de minha capacidade intelectual e
+                                     // cognitiva))
         model.addAttribute("message", "Register successfully!");
         return "register";
     }
 
     @GetMapping("prof-page")
     public String profPage(Model model, Principal principal) {
-    
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-    
 
-        List<Aluno> alunosMoba = alunoRepository.listByAlunosMoba();
-        List<Aluno> alunosBack = alunoRepository.listByAlunosBack();
-    
-        model.addAttribute("alunosBack", alunosBack);
-        model.addAttribute("alunosMoba", alunosMoba);
+        List<Aluno> alunosMobile = alunoRepository.listByCursoMobile();
+        List<Aluno> alunosBack = alunoRepository.listByCursoBack();
+        List<Aluno> alunosUXUI = alunoRepository.listByCursoUXUI();
+        List<Aluno> alunosDataAnalyst = alunoRepository.listByCursoDataAnalyst();
+        List<Aluno> alunosDataScientist = alunoRepository.listByCursoDataScientist();
+        List<Aluno> alunosSoftware = alunoRepository.listByCursoSoftware();
+
         model.addAttribute("prof", userDetails);
+        model.addAttribute("alunosMobile", alunosMobile);
+        model.addAttribute("alunosBack", alunosBack);
+        model.addAttribute("alunosUXUI", alunosUXUI);
+        model.addAttribute("alunosDataAnalyst", alunosDataAnalyst);
+        model.addAttribute("alunosDataScientist", alunosDataScientist);
+        model.addAttribute("alunosSoftware", alunosSoftware);
         return "prof-page";
     }
-    
 }

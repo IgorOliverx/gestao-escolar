@@ -17,10 +17,21 @@ public interface AlunoRepository extends org.springframework.data.jpa.repository
     List<Aluno> findAllAlunos();
 
     @Query("SELECT a FROM Aluno a WHERE a.curso = 'Dev. Mobile'")
-    List<Aluno> listByAlunosMoba();
-
-
+    List<Aluno> listByCursoMobile();
 
     @Query("SELECT a FROM Aluno a WHERE a.curso = 'Dev. Back-end'")
-    List<Aluno> listByAlunosBack();
+    List<Aluno> listByCursoBack();
+
+    @Query("SELECT a FROM Aluno a WHERE a.curso = 'UX/UI Design'")
+    List<Aluno> listByCursoUXUI();
+
+    @Query("SELECT a FROM Aluno a WHERE a.curso = 'Dev. Software'")
+    List<Aluno> listByCursoSoftware();
+
+    @Query("SELECT a FROM Aluno a WHERE a.curso = 'Cientista de dados'")
+    List<Aluno> listByCursoDataScientist();
+
+    @Query("SELECT a FROM Aluno a WHERE a.curso = 'Analista de Dados'")
+    List<Aluno> listByCursoDataAnalyst();
+
 }

@@ -1,3 +1,5 @@
+COLA O C
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,45 +8,61 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Pagina interna de professor</h1>
+    <h1>Pagina interna aloisioBoiBandido</h1>
 
+    <select id="curso-select" onchange="listarAlunos()">
+        <option value="Mobile">Desenvolvedor Mobile</option>
+        <option value="Back end">Desenvolvedor Back end</option>
+        <option value="UX e UI">Desenvolvedor UX UI</option>
+        <option value="Analista de dados">Analista de dados</option>
+        <option value="Desenvolvedor de software">Desenvolvedor de software</option>
 
+    </select>
+    
+    <div id="lista-alunos"></div>
 
-<h2>Listagem de alunos do curso Mobile</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>curso</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="alunoMoba : ${alunosMoba}">
-            <td th:text="${alunoMoba.nome}"></td>
-            <td th:text="${alunoMoba.curso}"></td>
-        </tr>
-    </tbody>
-</table>
-
-
-<h2>Listagem de alunos do curso Back end</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>curso</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="alunoBack : ${alunosBack}">
-            <td th:text="${alunoBack.nome}"></td>
-            <td th:text="${alunoBack.curso}"></td>
-        </tr>
-    </tbody>
-</table>
-
-
-
-
+    <script th:inline="javascript">
+        var alunosMobile = /*[[${alunosMobile}]]*/ [];
+        var alunosBack = /*[[${alunosBack}]]*/ [];
+        var alunosUXUI = /*[[${alunosUXUI}]]*/ [];
+        var alunosDataAnalyst = /*[[${alunosDataAnalyst}]]*/ [];
+        var alunosDataScientist = /*[[${alunosDataScientist}]]*/ [];
+        var alunosSoftware = /*[[${alunosSoftware}]]*/ [];
+        //Aqui você precisa passar as outras variaveis, dos outros cursos, da mesma forma que acima
+        //se vc quiser, vc pode passar mais infos para o js, como cpf/email ou sei la, seria interessante a gente criar um campo hora cadastrada mais pra frente
+    </script>
 </body>
+
+<script>
+    function listarAlunos() {
+        var cursoSelecionado = document.getElementById("curso-select").value;
+        var listaAlunos = "<h2>Listagem de alunoas do curso " + cursoSelecionado + "</h2><table><thead><tr><th>Nome</th><th>Curso</th></tr></thead><tbody>";
+        
+
+            //aqui embaixo vc precisa continuar o encadeamento de if/else
+        var alunos = [];
+        if (cursoSelecionado === "Mobile") {
+            alunos = alunosMobile;
+        } else if (cursoSelecionado === "Back end") {
+            alunos = alunosBack;
+        } else if (cursoSelecionado === "UX e UI") {
+            alunos = alunosUXUI;
+        } else if (cursoSelecionado === "Analista de dados") {
+            alunos = alunosDataAnalyst;
+        } else if (cursoSelecionado === "Cientista de dados") {
+            alunos = alunosDataScientist;
+        } else if (cursoSelecionado === "Desenvolvedor de software") {
+            alunos = alunosSoftware;
+        }
+        
+        //aqui é onde ta percorrendo o foreach de alunosMoba/back para montar a tabela
+        alunos.forEach(aluno => {
+            listaAlunos += "<tr><td>" + aluno.nome + "</td><td>" + aluno.curso + "</td></tr>";
+        });
+
+        listaAlunos += "</tbody></table>";
+
+        document.getElementById("lista-alunos").innerHTML = listaAlunos;
+    }
+</script>
 </html>
