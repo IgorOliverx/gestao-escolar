@@ -22,4 +22,7 @@ public class ProfessorDto {
     private String senha;
 
     private String role;
+
+
+    
 }

@@ -32,9 +32,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
-        http.csrf(c -> c.disable()).authorizeHttpRequests(request -> request.requestMatchers("/admin-page")
+        http.csrf(c -> c.disable()).authorizeHttpRequests(request -> request.requestMatchers("/admin-page", "/registration-admin")
             .hasAuthority("ADMIN").requestMatchers("/aluno-page").hasAuthority("ALUNO").requestMatchers("/prof-page").hasAuthority("PROF")
-            .requestMatchers("/registration-aluno", "/css/**", "/", "/registration-admin", "/registration-professor").permitAll()
+            .requestMatchers("/registration-aluno", "/css/**", "/", "/registration-professor", "/images/**", "/js/**").permitAll()
             .anyRequest().authenticated())
 
             .formLogin(form -> form.loginPage("/login").loginProcessingUrl("/login")
@@ -42,7 +42,7 @@ public class SecurityConfig {
 
                 .logout(form -> form.invalidateHttpSession(true).clearAuthentication(true)
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessUrl("/login?logout").permitAll());
+                    .logoutSuccessUrl("/    ").permitAll());
 
 
                     return http.build();

@@ -5,6 +5,7 @@ import com.example.demo.Model.Aluno;
 import com.example.demo.dto.AdminDto;
 import com.example.demo.dto.AlunoDto;
 import com.example.demo.dto.ProfessorDto;
+import com.example.demo.repositories.AdminRepository;
 import com.example.demo.repositories.AlunoRepository;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.AlunoService;
@@ -14,6 +15,7 @@ import java.util.List;
 
 import com.example.demo.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
@@ -49,6 +51,10 @@ public class AlunoController {
     private AlunoRepository alunoRepository;
 
 
+    @Autowired
+    private AdminRepository adminRepository;
+
+
     /*
      * Mapeamento de Rotas
      */
@@ -75,6 +81,7 @@ public class AlunoController {
 
     @PostMapping("/registration-aluno")
     public String saveUserAluno(@ModelAttribute("aluno") AlunoDto alunoDto, Model model) {
+        alunoDto.setRole("ALUNO");
         alunoService.save(alunoDto);
         model.addAttribute("message", "Register successfully!");
         return "register";
@@ -89,21 +96,27 @@ public class AlunoController {
 
     @PostMapping("/registration-professor")
     public String saveUserProfessor(@ModelAttribute("professor") ProfessorDto professorDto, Model model) {
+        professorDto.setRole("PROF");
         professorService.save(professorDto);
-        model.addAttribute("message", "Register successfully!");
+        model.addAttribute("message", "Cadastro concluído com sucesso");
         return "register_professor";
     }
 
-
+    @GetMapping("/")
+    public String index() {
+        List<com.example.demo.Model.Admin> adminList = adminRepository.findByCpf("admin");
+        if (adminList.isEmpty()) {
+            AdminDto adminMaster = new AdminDto("admin", "admin", "admin", "admin@admin.com", "admin", "ADMIN");
+            adminService.save(adminMaster);
+        }
+        return "/index";
+    }
+    
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "/index";
-    }
 
 
     /*

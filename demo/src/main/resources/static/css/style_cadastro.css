@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root{
+    --cor-principal:#28cca6;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+header{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    background: var(--cor-principal);
+}
+
+header  ul{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    right: 100px;
+    gap: 60px;
+
+}
+li{
+    list-style: none;
+    display: flex;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    color: white;
+    font-family: "Abel", Courier, sans-serif;
+    font-size: 24px;
+}
+h1:hover{
+    animation: animate-h1 0.2s forwards;
+}
+
+@keyframes animate-h1{
+    0%{
+
+    }100%{
+        scale: 1.2;
+        border-bottom: 3px solid blue;
+        color: #0e2433;
+    }
+}
+
+
+h2{
+    color: white;
+    font-size: 36px;
+    font-family: "Oswald", Helvetica, sans-serif;
+}
+h3{
+    color: white;
+    font-size: 18px;
+    font-family: "Abel", Courier, sans-serif;
+    margin: 0;
+}
+
+p{
+    margin-top: 1px;
+    color: white;
+    font-family: 'Abel', Courier, sans-serif;
+}
+.container{
+    margin-top: 50px;
+    display: flex;
+    width: 80%;
+    height: 580px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.container .container-esquerda{
+    background-color: var(--cor-principal);
+    height: 100%;
+    width: 40%;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.container .container-direita{
+    width: 60%;
+    height: 100%;
+    text-align: center;
+}
+#registration-form{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+svg{
+    position: relative;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+}
+svg:hover{
+    scale: 1.05;
+}
+.container .container-direita .form-group{
+    width: 60%;
+    height: 50px;
+    border: 1px solid #f9f9f9;
+    display: flex;
+    align-items: center;
+    background-color: #ebebeb;
+    gap: 30px;
+}
+.container .container-direita .form-group input{
+    border: none;
+    width: 99%;
+    height: 99%;
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+}
+.container .container-direita .form-group select{
+    border: none;
+    width: 90%;
+    height: 99%;
+    background-color: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+.container .container-direita .form-group input:focus{
+    outline: none !important;
+}
+
+.container .container-direita button{
+width: 220px;
+height: 50px;
+border-radius: 30px;
+background-color: var(--cor-principal) ;
+border: none;
+text-align: center;
+margin-top: 15px;
+cursor: pointer;
+
+}
+
+.container .container-esquerda .botao-login{
+    width: 220px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+    position: relative;
+    top: 110px;
+    left: 120px;
+    text-align: center;
+
+}
+
+button:hover{
+    animation: animate-btn 1s forwards;
+}
+
+.container .container-esquerda .botao-login:hover{
+    animation: animate-btn 1s forwards;
+}
+
+
+@keyframes animate-btn{
+    0%{
+
+    }100%{
+        scale: 1.1;
+
+    }
+}
+
+
+.message {
+    top: 94%;
+    left: 56%;
+    width: 300px;
+    height: 50px;
+    position: absolute;
+    z-index: 9999;
+    text-align: center;
+
+}

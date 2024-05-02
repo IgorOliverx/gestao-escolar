@@ -9,6 +9,8 @@ import java.util.List;
 public interface AdminRepository extends org.springframework.data.jpa.repository.JpaRepository<Admin, Long> {
     Admin findByEmail(String username);
 
+    List<Admin> findByCpf(String cpf);
+
     @Query("SELECT a FROM Admin a WHERE a.role = 'ADMIN'")
     List<Admin> findAllAdmin();
 

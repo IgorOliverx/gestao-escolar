@@ -39,6 +39,10 @@ public class CustomProfessorDetail implements UserDetails {
         return professor.getTelefone();
     }
 
+    public String getRole(){
+        return professor.getRole();
+    }
+
     @Override
     public String getPassword() {
         return professor.getSenha();

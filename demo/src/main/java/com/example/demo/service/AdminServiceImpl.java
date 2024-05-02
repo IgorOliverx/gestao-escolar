@@ -19,4 +19,6 @@ public class AdminServiceImpl implements AdminService {
         Admin admin = new Admin(adminDto.getNome(), adminDto.getTelefone(), adminDto.getEmail(), passwordEncoder.encode(adminDto.getSenha()), adminDto.getRole(), adminDto.getCpf());
         return adminRepository.save(admin);
     }
+
+
 }
