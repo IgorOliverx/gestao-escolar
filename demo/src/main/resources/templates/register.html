@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
-    <link rel="stylesheet" th:href="@{/css/style_cadastro.css}" />
+    <link rel="stylesheet" th:href="@{/css/style_cadastro.css}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.6/inputmask.min.js"></script>
 </head>
 <body>
 
@@ -83,4 +84,16 @@
 <div class="message" th:if="${message != null}" th:text="${message}" id="message"></div>
 
 </body>
+
+<script>
+    Inputmask({"mask": "(99) 9999-9999"}).mask("#telefone");
+    Inputmask({"mask": "123.123.123-12"}).mask("#cpf")
+    function limparCampos(){
+        document.getElementById("registration-form").reset();
+    }
+
+    document.getElementById("registration-form").addEventListener('submit', function(){
+        limparCampos();
+    })
+</script>
 </html>

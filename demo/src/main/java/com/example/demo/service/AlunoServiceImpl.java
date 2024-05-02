@@ -23,6 +23,8 @@ public class AlunoServiceImpl implements AlunoService {
         return alunoRepository.save(aluno);
     }
 
+    
+
 //SE EU TIVESSE MAIS OPERAÇÕES NA CLASSE DE SERVIÇO, ENTÃO EU IMPLEMENTARIA AQUI COM SUAS REGRAS DE NEGÓCIO
 
 

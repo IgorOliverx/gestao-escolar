@@ -78,4 +78,13 @@
 <div class="message" th:if="${message != null}" th:text="${message}" id="message"></div>
 
 </body>
+<script>
+    function limparCampos(){
+        document.getElementById("registration-form").reset();
+    }
+
+    document.getElementById("registration-form").addEventListener('submit', function(){
+        limparCampos();
+    })
+</script>
 </html>

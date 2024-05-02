@@ -15,4 +15,12 @@ public interface AlunoRepository extends org.springframework.data.jpa.repository
 
     @Query("SELECT a FROM Aluno a WHERE a.role = 'ALUNO'")
     List<Aluno> findAllAlunos();
+
+    @Query("SELECT a FROM Aluno a WHERE a.curso = 'Dev. Mobile'")
+    List<Aluno> listByAlunosMoba();
+
+
+
+    @Query("SELECT a FROM Aluno a WHERE a.curso = 'Dev. Back-end'")
+    List<Aluno> listByAlunosBack();
 }

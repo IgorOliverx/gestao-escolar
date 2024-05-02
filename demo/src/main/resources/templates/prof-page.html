@@ -7,5 +7,44 @@
 </head>
 <body>
     <h1>Pagina interna de professor</h1>
+
+
+
+<h2>Listagem de alunos do curso Mobile</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>curso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="alunoMoba : ${alunosMoba}">
+            <td th:text="${alunoMoba.nome}"></td>
+            <td th:text="${alunoMoba.curso}"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h2>Listagem de alunos do curso Back end</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>curso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="alunoBack : ${alunosBack}">
+            <td th:text="${alunoBack.nome}"></td>
+            <td th:text="${alunoBack.curso}"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
 </body>
 </html>

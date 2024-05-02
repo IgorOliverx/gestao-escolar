@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-McPnITkr54uvtj1fXvxB4ypuqLwT5AVD4zVv+D9Cmf5m6Jww/aW7wGgln7k5vxFM" crossorigin="anonymous">
     <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/swiper-bundle.min.css}">
 </head>
 <body>
     <header>
@@ -54,8 +55,8 @@
 
     <section id="sobre-nos">
     <div class="container-titulo">
-        <h3>Nossos cursos</h3>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias non debitis porro officiis vel nesciunt consequuntur sapiente illo, expedita eum assumenda, repellat cum aperiam natus commodi. Laboriosam, vitae. Veniam, voluptatum?</p>
+        <h3 style="font-size: 48px; cursor: pointer; margin: 0; font-weight: bold; font-family: 'Poppins', Courier, monospace; text-transform: uppercase; transition: all 0.3s ease-in-out;">Nossos cursos</h3>
+        <p>Oferecemos Cursos práticos e teóricos que te preparam para o mundo coorporativo profissional. Esteja sempre um passo a frente com nossas formações.</p>
     </div>
 
     <div class="container-cards">
@@ -101,16 +102,152 @@
     </section>
 
     <section id="projetos">
-        
-        <div class="slide-container">
+      <div class="teste" style="width: 100%; text-align: center; display: flex; justify-content: center;align-items: center;">  <h3 style="font-size: 48px; text-align: center; cursor: pointer; margin: 0; font-weight: bold; font-family: 'Poppins', Courier, monospace; text-transform: uppercase; transition: all 0.3s ease-in-out;">Projetos</h3></div>
+        <div class="slide-container swiper">
             <div class="slide-content">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <div class="image-contet">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-content">
                             <span class="overlay"></span>
 
                             <div class="card-image">
-                                <img th:src="@{/images/logo.png}" alt="" class="card-img">
+                                <img th:src="@{/images/projeto9.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>API RestFull - Java</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto1.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>UX/UI - Shop</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto8.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>Mobile - FoodApp</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto2.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>UX/UI - Marketing Page</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto5.png}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>Análise de dados</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto7.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>Mobile - SaúdeApp</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto4.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>API RestFull - Node</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto3.jpeg}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <h2>FullStack - Java/Angular</h2>
+                            <p>Descricao</p>
+
+                            <button class="button-projetos">Ver mais</button>
+                        </div>
+
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img th:src="@{/images/projeto6.jpeg}" alt="" class="card-img">
                             </div>
                         </div>
 
@@ -118,12 +255,15 @@
                             <h2>David Dekk</h2>
                             <p>Descricao</p>
 
-                            <button>Ver mais</button>
+                            <button class="button-projetos">Ver mais</button>
                         </div>
 
                     </div>
                 </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -151,7 +291,7 @@
                 </span>
             </div>
             <div class="conjunto c2">
-                <h3 style="position: relative; left: 35px;">Navegação</h3>
+                <h3 style="position: relative; left: 35px; color: black;">Navegação</h3>
                 <ul>
                     <li>
                         <a href="">Home</a>
@@ -163,7 +303,7 @@
                 </ul>
             </div>
             <div class="conjunto c2">
-                <h3  style="position: relative; left: 35px;">Endereço</h3>
+                <h3  style="position: relative; left: 35px; color: black;">Endereço</h3>
                 <ul>
                     <li style="gap: 12px;">
                         <a href=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>admin@gmail.com</a>
@@ -173,7 +313,7 @@
                 </ul>
             </div>
             <div class="conjunto c4">
-                <h3  style="position: relative; left: 35px;">Contato</h3>
+                <h3  style="position: relative; left: 35px; color: black;">Contato</h3>
                 <input type="text" placeholder="Insira seu email">
                 <input type="text" placeholder="Insira sua mensagem">
                 <button type="submit">Enviar</button>
@@ -186,5 +326,7 @@
         </section>
       
 </body>
+<script th:src="@{js/swiper-bundle.min.js}"></script>
 
+<script th:src="@{js/script.js}"></script>
 </html>

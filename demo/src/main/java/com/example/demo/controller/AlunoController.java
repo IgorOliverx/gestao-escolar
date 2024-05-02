@@ -139,6 +139,7 @@ public class AlunoController {
     @GetMapping("admin-alunos--page")
     public String mostrarAlunos(Model model) {
         List<Aluno> alunos = alunoRepository.findAllAlunos();
+
         model.addAttribute("alunos", alunos);
         return "admin-alunos--page";
     }
@@ -153,8 +154,17 @@ public class AlunoController {
 
     @GetMapping("prof-page")
     public String profPage(Model model, Principal principal) {
+    
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+    
+
+        List<Aluno> alunosMoba = alunoRepository.listByAlunosMoba();
+        List<Aluno> alunosBack = alunoRepository.listByAlunosBack();
+    
+        model.addAttribute("alunosBack", alunosBack);
+        model.addAttribute("alunosMoba", alunosMoba);
         model.addAttribute("prof", userDetails);
         return "prof-page";
     }
+    
 }
