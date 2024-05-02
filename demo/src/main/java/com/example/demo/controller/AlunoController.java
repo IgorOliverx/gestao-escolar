@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.Model.Aluno;
+import com.example.demo.Model.Professor;
 import com.example.demo.dto.AdminDto;
 import com.example.demo.dto.AlunoDto;
 import com.example.demo.dto.ProfessorDto;
 import com.example.demo.repositories.AdminRepository;
 import com.example.demo.repositories.AlunoRepository;
+import com.example.demo.repositories.ProfessorRepository;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.AlunoService;
 
@@ -14,12 +16,17 @@ import java.util.List;
 
 import com.example.demo.service.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 /*
@@ -48,10 +55,13 @@ public class AlunoController {
     private ProfessorService professorService;
 
     @Autowired
-    private AlunoRepository alunoRepository;
+    private AdminRepository adminRepository;
 
     @Autowired
-    private AdminRepository adminRepository;
+    private ProfessorRepository professorRepository;
+
+    @Autowired
+    private AlunoRepository alunoRepository;
 
     /*
      * Mapeamento de Rotas
@@ -126,6 +136,21 @@ public class AlunoController {
     @GetMapping("admin-page")
     public String adminPage(Model model, Principal principal, @ModelAttribute("aluno") AlunoDto alunoDto) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
+
+        List<Professor> professoresMobile = professorRepository.listByCursoMobileProf();
+        List<Professor> professoresBack = professorRepository.listByCursoBackProf();
+        List<Professor> professoresUXUI = professorRepository.listByCursoUXUIProf();
+        List<Professor> professoresDataAnalyst = professorRepository.listByCursoDataAnalystProf();
+        List<Professor> professoresDataScientist = professorRepository.listByCursoDataScientistProf();
+        List<Professor> professoresSoftware = professorRepository.listByCursoSoftwareProf();
+
+        model.addAttribute("professoresMobile", professoresMobile);
+        model.addAttribute("professoresBack", professoresBack);
+        model.addAttribute("professoresUXUI", professoresUXUI);
+        model.addAttribute("professoresDataAnalyst", professoresDataAnalyst);
+        model.addAttribute("professoresDataScientist", professoresDataScientist);
+        model.addAttribute("professoresSoftware", professoresSoftware);
+
         model.addAttribute("admin", userDetails);
         return "admin-page";
     }
@@ -139,18 +164,28 @@ public class AlunoController {
 
     @PostMapping("admin-page")
     public String saveUserByAdmin(@ModelAttribute("aluno") AlunoDto alunoDto, Model model) {
-        alunoService.save(alunoDto); // Aqui o certo seria a modularização e o admin/prof/aluno ter o seu(tudo
-                                     // herdade de uma interface usuario -> ou classe abstrata, depende das
-                                     // limitações do spring (na verdade de minha capacidade intelectual e
-                                     // cognitiva))
+        alunoService.save(alunoDto);
         model.addAttribute("message", "Register successfully!");
         return "register";
+    }
+
+    @GetMapping("/delete/alunos/{id}")
+    public String deleteAluno(@PathVariable Long id) {
+        alunoRepository.deleteById(id);
+        return "redirect:/"; 
+    }
+    
+    @GetMapping("/delete/professores/{id}")
+    public String deleteProfessor(@PathVariable Long id) {
+        professorRepository.deleteById(id);
+        return "redirect:/"; 
     }
 
     @GetMapping("prof-page")
     public String profPage(Model model, Principal principal) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
 
+        List<Aluno> alunosTodos = alunoRepository.findAllAlunos();
         List<Aluno> alunosMobile = alunoRepository.listByCursoMobile();
         List<Aluno> alunosBack = alunoRepository.listByCursoBack();
         List<Aluno> alunosUXUI = alunoRepository.listByCursoUXUI();
@@ -159,6 +194,7 @@ public class AlunoController {
         List<Aluno> alunosSoftware = alunoRepository.listByCursoSoftware();
 
         model.addAttribute("prof", userDetails);
+        model.addAttribute("alunosTodos", alunosTodos);
         model.addAttribute("alunosMobile", alunosMobile);
         model.addAttribute("alunosBack", alunosBack);
         model.addAttribute("alunosUXUI", alunosUXUI);

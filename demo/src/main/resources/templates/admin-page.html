@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>ESTAMOS NA PAGINA DE ADMIN ALOISIO BOI BANDIDO</h1>
 
@@ -14,47 +16,32 @@
 
 
     <div class="container">
-    
-    <div class="message" th:if="${message != null}" th:text="${message}" id="message"></div>
-    <h2>Cadastro de alunos</h2>
 
-    <form id="registration-form" th:action="@{/registration}" method="post" role="form" th:object="${aluno}">
-        <div class="form-group">
-            <label for="nome">Nome:</label>
-            <input th:field="*{nome}" type="text" id="nome" name="nome" placeholder="Insira seu nome" required />
-        </div>
+        <div class="message" th:if="${message != null}" th:text="${message}" id="message"></div>
+        <h2>Cadastro de alunos</h2>
 
-        <div class="form-group">
-            <label for="telefone">Telefone:</label>
-            <input th:field="*{telefone}" type="text" id="telefone" name="telefone" placeholder="Insira seu telefone" required />
-        </div>
+        <form id="registration-form" th:action="@{/registration}" method="post" role="form" th:object="${aluno}">
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input th:field="*{nome}" type="text" id="nome" name="nome" placeholder="Insira seu nome" required />
+            </div>
 
-        <div class="form-group">
-            <label for="cpf">CPF:</label>
-            <input th:field="*{cpf}" type="text" id="cpf" name="cpf" placeholder="Insira seu CPF" required />
-        </div>
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input th:field="*{telefone}" type="text" id="telefone" name="telefone"
+                    placeholder="Insira seu telefone" required />
+            </div>
 
-        <div class="form-group">
-            <label for="curso">Curso:</label>
-            <input th:field="*{curso}" type="text" id="curso" name="curso" placeholder="Insira seu Curso" required/>
-        </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input th:field="*{cpf}" type="text" id="cpf" name="cpf" placeholder="Insira seu CPF" required />
+            </div>
 
-
-
-
-
-
-
-
-
-        <div class="form-group">
-            <label for="professor">professor:</label>
-            <input th:field="*{professor}" type="text" id="professor" name="professor" placeholder="Insira seu professor" required/>
-        </div>
-        <div class="form-group">
-            <label for="horario">horario:</label>
-            <input th:field="*{horario}" type="text" id="horario" name="horario" placeholder="Insira seu horario" required/>
-        </div>
+            <div class="form-group">
+                <label for="curso">Curso:</label>
+                <input th:field="*{curso}" type="text" id="curso" name="curso" placeholder="Insira seu Curso"
+                    required />
+            </div>
 
 
 
@@ -64,35 +51,142 @@
 
 
 
-
-
-        <div class="form-group">
-            <label for="email">E-Mail</label>
-            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Insira seu E-Mail" required />
-        </div>
-
-        <div class="form-group">
-            <label for="senha">Senha:</label>
-            <input th:field="*{senha}" type="password" id="senha" name="senha" placeholder="Insira sua senha" required />
-        </div>
-
-        <div class="form-group">
-            <label for="role">USUÁRIO</label>
-            <input th:field="*{role}" type="text" id="role" name="role" placeholder="Tipo de usuário" required value="ALUNO"/>
-        </div>
-
-        <button type="submit" class="btn">Register</button>
-    </form>
-</div>
+            <div class="form-group">
+                <label for="professor">professor:</label>
+                <input th:field="*{professor}" type="text" id="professor" name="professor"
+                    placeholder="Insira seu professor" required />
+            </div>
+            <div class="form-group">
+                <label for="horario">horario:</label>
+                <input th:field="*{horario}" type="text" id="horario" name="horario" placeholder="Insira seu horario"
+                    required />
+            </div>
 
 
 
+
+
+
+
+
+
+
+
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input th:field="*{email}" type="email" id="email" name="email" placeholder="Insira seu E-Mail"
+                    required />
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input th:field="*{senha}" type="password" id="senha" name="senha" placeholder="Insira sua senha"
+                    required />
+            </div>
+
+            <div class="form-group">
+                <label for="role">USUÁRIO</label>
+                <input th:field="*{role}" type="text" id="role" name="role" placeholder="Tipo de usuário" required
+                    value="ALUNO" />
+            </div>
+
+            <button type="submit" class="btn">Register</button>
+        </form>
+
+    </div>
+
+    <select id="curso-select" onchange="listarProfessores()">
+        <option value="Mobile">Desenvolvedor Mobile</option>
+        <option value="Back end">Desenvolvedor Back end</option>
+        <option value="UX e UI">Desenvolvedor UX UI</option>
+        <option value="Analista de dados">Analista de dados</option>
+        <option value="Desenvolvedor de software">Desenvolvedor de software</option>
+
+    </select>
+
+    <div id="lista-professores"></div>
+
+
+
+    <script th:inline="javascript">
+        var professoresMobile = /*[[${professoresMobile}]]*/[];
+        var professoresBack = /*[[${professoresBack}]]*/[];
+        var professoresUXUI = /*[[${professoresUXUI}]]*/[];
+        var professoresDataAnalyst = /*[[${professoresDataAnalyst}]]*/[];
+        var professoresDataScientist = /*[[${professoresDataScientist}]]*/[];
+        var professoresSoftware = /*[[${professoresSoftware}]]*/[];
+        //Aqui você precisa passar as outras variaveis, dos outros cursos, da mesma forma que acima
+        //se vc quiser, vc pode passar mais infos para o js, como cpf/email ou sei la, seria interessante a gente criar um campo hora cadastrada mais pra frente
+    </script>
 
     <span sec:authorize="isAuthenticated"><a th:href="@{/logout}">logout</a></span>
-    
 
 
-    <a href="admin-alunos--page">listar alunos</a>
+
+    <a href="admin-alunos--page">listar professores</a>
 </body>
-</html>
 
+<script th:inline="javascript">
+    var deleteUrl = /*[[@{/delete/professores/}]]*/ '';
+    function deleteProfessor(id) {
+        // Rota de exclusão do aluno
+        var deleteUrl = /*[[@{/delete/professores/}]]*/ '';
+
+        // Configuração da solicitação
+        var requestOptions = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        // Envio da solicitação de exclusão
+        fetch(deleteUrl.replace('{id}', id), requestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao excluir professor');
+                }
+                // Se a exclusão for bem-sucedida, atualize a página ou faça qualquer outra ação necessária
+                location.reload(); // Recarrega a página após a exclusão (opcional)
+            })
+            .catch(error => {
+                console.error('Erro ao excluir professor:', error);
+                // Trate o erro de acordo com suas necessidades, por exemplo, exibindo uma mensagem de erro ao usuário
+            });
+    }
+
+</script>
+
+<script>
+    function listarProfessores() {
+        var cursoSelecionado = document.getElementById("curso-select").value;
+        var listaProfessores = "<h2>Listagem de professores do curso " + cursoSelecionado + "</h2><table><thead><tr><th>Nome</th><th>Curso</th><th>Excluir</th></tr></thead><tbody>";
+
+        //aqui embaixo vc precisa continuar o encadeamento de if/else
+        var professores = [];
+        if (cursoSelecionado === "Mobile") {
+            professores = professoresMobile;
+        } else if (cursoSelecionado === "Back end") {
+            professores = professoresBack;
+        } else if (cursoSelecionado === "UX e UI") {
+            professores = professoresUXUI;
+        } else if (cursoSelecionado === "Analista de dados") {
+            professores = professoresDataAnalyst;
+        } else if (cursoSelecionado === "Cientista de dados") {
+            professores = professoresDataScientist;
+        } else if (cursoSelecionado === "Desenvolvedor de software") {
+            professores = professoresSoftware;
+        }
+
+        //aqui é onde ta percorrendo o foreach de alunosMoba/back para montar a tabela
+        professores.forEach(professor => {
+            listaProfessores += "<tr><td>" + professor.nome + "</td><td>" + professor.curso + "</td><td><a th:href=\"@{/delete/professores/}" + professor.id + "\">Excluir</a></td></tr>";
+        });
+
+        listaProfessores += "</tbody></table>";
+
+        document.getElementById("lista-professores").innerHTML = listaProfessores;
+    }
+</script>
+
+</html>

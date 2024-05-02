@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+:root{
+    --cor-principal:#28cca6;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+h2 {
+    text-align: center;
+    color: #0e2433;
+}
+header{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    background: var(--cor-principal);
+}
+
+header  ul{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    right: 100px;
+    gap: 60px;
+
+}
+li{
+    list-style: none;
+    display: flex;
+}
+a{
+    text-decoration: none;
+}
+h1{
+    color: white;
+    font-family: "Abel", sans-serif;
+    font-size: 24px;
+}
+h1:hover{
+    animation: animate-h1 0.2s forwards;
+}
+
+@keyframes animate-h1{
+    0%{
+
+    }100%{
+        scale: 1.2;
+        border-bottom: 3px solid blue;
+        color: #0e2433;
+    }
+}
+
+#banner {
+    display: flex;
+    width: 100%;
+    height: 600px;
+}
+
+
+
+
+/* Adicione este CSS ao seu arquivo style_interna_prof.css ou em uma seção de estilo na sua página HTML */
+
+/* Estilo para a seção do dashboard */
+#dashboard-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#dashboard-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#dashboard-section p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Estilo para o nome do professor */
+#nome-professor {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* Adicione este CSS ao seu arquivo style_interna_prof.css ou em uma seção de estilo na sua página HTML */
+
+/* Estilo para a seção de Administração de Alunos */
+#admin-alunos-section {
+    margin-bottom: 20px;
+}
+
+#admin-alunos-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o elemento select */
+#curso-select {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para as opções do select */
+#curso-select option {
+    font-size: 16px;
+}
+
+/* Adicione este CSS ao seu arquivo styles.css ou em uma seção de estilo na sua página HTML */
+
+/* Estilos para a tabela */
+#lista-alunos table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#lista-alunos table th,
+#lista-alunos table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#lista-alunos table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+#lista-alunos table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#lista-alunos table tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+
+
+#footer{
+    background-color: #8d8b8b;
+    width: 100%;
+    height: 350px;
+}
+
+.rodape-cima{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+.rodape-cima .c1{
+    width: 30%;
+    height: 80%;
+    padding-top: 50px;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 50px;
+}
+.rodape-cima .c1 img{
+
+}
+.rodape-cima .conjunto{
+    width: 15%;
+    margin: auto;
+    height: 80%;
+    padding-top: 30px;
+}
+.rodape p{
+    color: rgb(204, 202, 202);
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0;
+}
+.rodape-cima .conjunto.c2  {
+text-align: left;
+}
+.rodape-cima .conjunto h3{
+    position: relative;
+    width: 60px;
+     left: 35px;
+     border-bottom: 5px solid orange;
+}
+.rodape-cima .conjunto.c2 ul li{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 8px;
+
+}
+.rodape-cima .conjunto.c2 ul li a{
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+}.rodape-cima .conjunto.c2 ul li a:hover{
+    color: orange;
+}
+.rodape-cima .conjunto.c2 ul li a p{
+    margin: 0;
+}
+.rodape-cima .conjunto.c2 ul li a svg{
+    width: 20px;
+    height: 20px;
+}
+.rodape-cima .conjunto.c4 input[type="text"]{
+width: 244px;
+border-bottom: 1px solid rgb(148, 148, 148);
+margin-bottom: 5px;
+background-color: transparent;
+}
+.rodape-cima .conjunto.c4 input:nth-child(3){
+    height: 100px;
+
+}
+.rodape-cima .conjunto.c4 button{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    color: white;
+    background-color: var(--cor-principal);
+    border: none;
+    width: 250px;
+    height: 35px;
+}
+
+
+
+
+
+

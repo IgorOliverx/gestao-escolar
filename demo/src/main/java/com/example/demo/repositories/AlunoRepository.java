@@ -3,7 +3,6 @@ package com.example.demo.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
-
 import com.example.demo.Model.Aluno;
 
 /**

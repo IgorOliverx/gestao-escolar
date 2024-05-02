@@ -18,7 +18,7 @@ public class Professor {
     private String nome;
     private String telefone;
     private String cpf;
-    private String lecionandoCurso;
+    private String Curso;
     private String email;
     private String senha;
     private String role;
@@ -28,11 +28,11 @@ public class Professor {
         super();
     }
 
-    public Professor(String nome, String telefone, String email, String lecionandoCurso, String senha, String role, String cpf) {
+    public Professor(String nome, String telefone, String email, String Curso, String senha, String role, String cpf) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
-        this.lecionandoCurso = lecionandoCurso;
+        this.Curso = Curso;
         this.senha = senha;
         this.role = role;
         this.cpf = cpf;
